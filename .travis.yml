@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - git clone https://github.com/yshtemp/docker-lineageos.git -b cm-12.0 CyanogenMod/
+script:
+  - travis_wait 30
+  - cd CyanogenMod
+  - ./run.sh
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - docker tag stucki/cyanogenmod:latest yshalsager/cyanogenmod:latest
+  - docker push stucki/cyanogenmod:latest yshalsager/cyanogenmod:latest
