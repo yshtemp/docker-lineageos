@@ -11,4 +11,4 @@ script:
   - ./run.sh
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - docker tag stucki/cyanogenmod:latest yshalsager/cyanogenmod:latest
-  - docker yshalsager/cyanogenmod:latest
+  - docker push yshalsager/cyanogenmod:latest
